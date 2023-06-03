@@ -1,12 +1,27 @@
 package com.gii.netology;
 
-import org.junit.Test;
+import org.apache.commons.beanutils.ConversionException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.IllegalFormatException;
 
-public class BasketTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class BasketTest {
+    @Test
+    void loadFromTxtFile() {
+        File file = new File("text.txt");
+
+        Assertions.assertThrows(FileNotFoundException.class, () -> Basket.loadFromTxtFile(file));
+    }
 
     @Test
-    public void addToCart() {
+    void loadFromBinFile() {
+        File file = new File("cvs.cvs");
+        Assertions.assertThrows();
     }
 }
