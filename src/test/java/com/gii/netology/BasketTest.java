@@ -20,8 +20,11 @@ class BasketTest {
     }
 
     @Test
-    void loadFromBinFile() {
-        File file = new File("cvs.cvs");
-        Assertions.assertThrows();
+    void testAddToCart() {
+        String[] strings = {"asd", "pas"};
+        int[] ints = {1, 2};
+        Basket basket = new Basket(strings, ints);
+
+        Assertions.assertNotNull(basket.getProductName());
     }
 }
