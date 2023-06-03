@@ -82,6 +82,7 @@ public class Main {
 
         while (true) {
             System.out.println("List of possible items to buy");
+            basket.getPrice();
             showStoreProducts(productName, price);
 
             System.out.println("\nSelect a product or enter `end`");

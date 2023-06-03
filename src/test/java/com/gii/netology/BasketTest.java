@@ -1,15 +1,13 @@
 package com.gii.netology;
 
-import org.apache.commons.beanutils.ConversionException;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.IllegalFormatException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class BasketTest {
     @Test
@@ -19,12 +17,10 @@ class BasketTest {
         Assertions.assertThrows(FileNotFoundException.class, () -> Basket.loadFromTxtFile(file));
     }
 
-    @Test
-    void testAddToCart() {
-        String[] strings = {"asd", "pas"};
-        int[] ints = {1, 2};
-        Basket basket = new Basket(strings, ints);
-
-        Assertions.assertNotNull(basket.getProductName());
+    @ParameterizedTest
+    @ValueSource(strings = {"3", "4"})
+    void addToCart(String str) {
+        Basket basket = new Basket(new String[]{"a", "b"}, new int[] {1, 2});
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> basket.addToCart(Integer.parseInt(str), 3));
     }
 }
