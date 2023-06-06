@@ -15,6 +15,12 @@ class BasketTest {
         Assertions.assertThrows(FileNotFoundException.class, () -> Basket.loadFromTxtFile(file));
     }
 
+    @Test
+    void loadFromBinFile() {
+        File file = new File("basket.bin");
+        Assertions.assertThrows(FileNotFoundException.class, () -> Basket.loadFromTxtFile(file));
+    }
+
     @ParameterizedTest
     @ValueSource(strings = {"3", "4"})
     void addToCart(String str) {
